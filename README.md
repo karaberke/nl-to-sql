@@ -1,6 +1,6 @@
 # nl-to-sql
 
-A natural-language-to-SQL agent for SQL Server, PostgreSQL or MySQL. Type a question in English, the backend reads your database schema, has an LLM turn the question into a `SELECT` query, runs it, and returns the rows. Two parts:
+A natural-language-to-SQL agent for any SQL Server. Type a question in English, the backend reads your database schema, has an LLM turn the question into a `SELECT` query, runs it, and returns the rows. Two parts:
 
 - `backend/` — FastAPI service. Introspects the schema, generates SQL, validates it, retries on error, executes it.
 - `front/` — React. Sends questions to the backend and displays results in a table.
@@ -11,7 +11,7 @@ It needs an external OpenAI-compatible LLM server (llama.cpp, Ollama, a cloud AP
 
 ![The SQL Agent UI: a prompt box under the heading "Query Your Database"](docs/ui.png)
 
-This is the starting screen at `http://localhost:5173` — the heading uses your `DB_NAME`. Type a question and press ⌘↵ (or click **Run query**). The answer replaces this view: the prompt box shrinks to the top, a collapsible **Generated SQL** panel shows the query the LLM produced, and the rows fill the rest of the window in a table with sticky headers, drag-to-resize columns and a zoom control.
+This is the starting screen at `http://localhost:5173` — the heading uses your `DB_NAME`. Type a question and run your query. **Generated SQL** panel shows the query the LLM produced.
 
 ## How to set up
 
